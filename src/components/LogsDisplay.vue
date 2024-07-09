@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import {FactLog} from "../interfaces/interfaces.ts";
 import formatDate from "../utils/date-format.ts";
+import {computed} from "vue";
 
 const {logs} = defineProps<{
     logs: FactLog[]
 }>()
+const reverseLogs = computed(() => logs.slice().reverse())
 
 
 </script>
@@ -14,7 +16,7 @@ const {logs} = defineProps<{
     <div class="font-bold underline ">
         Logs
     </div>
-    <div v-for="log in logs" class="mt-4">
+    <div v-for="log in reverseLogs" class="mt-4">
         <div class="font-bold">
             {{ formatDate(log.date)}}
         </div>
