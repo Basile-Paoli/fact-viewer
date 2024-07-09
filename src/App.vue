@@ -3,6 +3,7 @@ import FactCard from "./components/FactCard.vue";
 import httpClient from "./httpClient.ts";
 import {ref} from "vue";
 import {FactLog} from "./interfaces/interfaces.ts";
+import LogsDisplay from "./components/LogsDisplay.vue";
 
 const logs = ref<FactLog[]>([])
 function addLog(text: string, type: string)  {
@@ -20,7 +21,7 @@ function addLog(text: string, type: string)  {
             <FactCard type="Math" :get-fact="httpClient.getMathFact" @log-fact="addLog"></FactCard>
             <FactCard type="Date" :get-fact="httpClient.getDateFact" @log-fact="addLog"></FactCard>
         </div>
-        <div v-for="log in logs">{{log.message}}</div>
+        <LogsDisplay :logs="logs"></LogsDisplay>
     </div>
 </template>
 
