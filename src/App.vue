@@ -16,8 +16,8 @@ function addLog(text: string, type: string)  {
 </script>
 
 <template>
-    <div class="flex justify-evenly ">
-        <div>
+    <div class="flex justify-evenly h-[700px]">
+        <div class="h-full">
             <FactCard type="Math" :get-fact="httpClient.getMathFact" @log-fact="addLog"></FactCard>
             <FactCard type="Date" :get-fact="httpClient.getDateFact" @log-fact="addLog"></FactCard>
         </div>
